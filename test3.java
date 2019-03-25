@@ -2,46 +2,43 @@ import java.util.Scanner;
 public class test3 {
 
     public static void main(String[] args) {
-        System.out.println("Put 3 int arguments into tab: ");
+        System.out.println("Size of array: ");
         Scanner scan = new Scanner(System.in);
-        System.out.println("1: ");
         int a = scan.nextInt();
-        System.out.println("2: ");
-        int b = scan.nextInt();
-        System.out.println("3: ");
-        int c = scan.nextInt();
-        int[] tab = new int[]{a,b,c};
+        int[] tab = new int[a];
         int i=0;
-        while(i<3)
+        while(i<a)
         {
-            System.out.println("Value nr: #" + (i+1) + " : " + tab[i]);
+            System.out.println("Put a value of arguments: #" + (i+1));
+            int b = scan.nextInt();
+            tab[i] = tab[i] + b;
             i++;
+
         }
-        less(tab);
-        more(tab);
+        less(tab,a);
+        more(tab,a);
 
 
     }
-    private static void less(int[] tab){
-        if(tab[0]<tab[1] && tab[0]<tab[2]){
-            System.out.println("the smallest value: "+ tab[0]);
+    private static void less(int[] tab, int x){
+        int wynik = tab[0];
+        for(int i = 0; i<x;i++){
+                if(wynik>tab[i]){
+                    wynik=tab[i];
+                }
+
         }
-        else if(tab[1]<tab[0]&& tab[1]<tab[2]) {
-            System.out.println("the smallest value: " + tab[1]);
-        } else {
-            System.out.println("the smallest value: "+ tab[2]);
-        }
+        System.out.println("Less value is: " + wynik);
     }
-    private static void more(int[] tab){
-        if(tab[0]>tab[1] && tab[0]>tab[2]){
-            System.out.println("the greatest value: "+ tab[0]);
+    private static void more(int[] tab, int x){
+        int wynik = tab[0];
+        for(int i = 0; i<x;i++){
+            if(wynik<tab[i]){
+                wynik=tab[i];
+            }
+
         }
-        else if(tab[1]>tab[0]&& tab[1]>tab[2]){
-            System.out.println("the greatest value: "+ tab[1]);
-        }
-        else {
-            System.out.println("the greatest value: "+ tab[2]);
-        }
+        System.out.println("Greates value is: " + wynik);
     }
 
 
